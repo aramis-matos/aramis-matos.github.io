@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyboundDB 2.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="selection" class="selection center_item">
+        <div class="players shadow">
+
+            <form action="dealer" id="dealer">
+                <img src="sprites/Gran_Mini.webp" alt="Gran Sprite" class="sprites">
+                <label for="dealer_char">Dealer:</label>
+                <select name="characters" id="dealer_character" class="shadow">
+                    <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option>
+                </select>
+                <label for="dealer_move">Move</label>
+                <select name="dealer_moves" id="dealer_move" class="shadow">
+                    <option value="All">All</option>
+                    <option value="c.L">c.L</option>
+                    <option value="c.M">c.M</option>
+                    <option value="c.H">c.H</option>
+                </select>
+            </form>
+            <form action="responder" id="responder">
+                <img src="sprites/Djeeta_Mini.webp" alt="Gran Sprite" class="sprites">
+                <label for="responder_char">Responder:</label>
+                <select name="characters" id="responder_characters" class="shadow">
+                    <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option>
+                </select>
+                <label for="responder_move">Move</label>
+                <select name="responder_moves" id="responder_move" class="shadow">
+                    <option value="c.L">c.L</option>
+                    <option value="c.M">c.M</option>
+                    <option value="c.H">c.H</option>
+                </select>
+            </form>
+        </div>
+        <input type="submit" value="Submit" class="shadow">
+        <a href="index.html"><input type="submit" value="Reset" class="shadow"></a>
+    </div>
+
+    <div id= "results" class="results selection center_item">
+        <table class="table_results">
+            <p>Moves that (<span id="light_moves">c.L</span>, 5f) can Punish:</p>
+            <tr>
+                <th>Move</th>
+                <th>Dealer On Block</th>
+                <th>Window to punish:</th>
+            </tr>
+            <tr>
+                <td><span id="mid_moves">f.M</span></td>
+                <td>-6 frame(s)</td>
+                <td>2 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">f.H</span></td>
+                <td>-9 frame(s)</td>
+                <td>5 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">2H</span></td>
+                <td>-13 frame(s)</td>
+                <td>9 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">2U</span></td>
+                <td>-12 frame(s)</td>
+                <td>8 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">5U</span></td>
+                <td>-5 frame(s)</td>
+                <td>1 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="light_moves">236L</span></td>
+                <td>-7 frame(s)</td>
+                <td>3 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="light_moves">623L</span></td>
+                <td>-22 frame(s)</td>
+                <td>18 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="mid_moves">623M</span></td>
+                <td>-30 frame(s)</td>
+                <td>26 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="heavy_moves">623H</span></td>
+                <td>-30 frame(s)</td>
+                <td>26 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="light_moves">214L</span></td>
+                <td>-6 frame(s)</td>
+                <td>2 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="mid_moves">214M</span></td>
+                <td>-10 frame(s)</td>
+                <td>6 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="heavy_moves">214H</span></td>
+                <td>-8 frame(s)</td>
+                <td>4 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">Tempest Blade</span></td>
+                <td>-13 frame(s)</td>
+                <td>9 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">Catastrophe</span></td>
+                <td>-18 frame(s)</td>
+                <td>14 frame(s)</td>
+            </tr>
+        </table>
+    </div> 
+</body>
+
+</html>

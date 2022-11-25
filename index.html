@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyboundDB 2.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="selection" class="selection center_item">
+        <div class="players shadow">
+
+            <form action="dealer" id="dealer">
+                <img src="sprites/Gran_portrait.png" alt="Gran Portrait" class="sprites" name="portrait">
+                <label for="dealer_char">Dealer:</label>
+                <select name="characters" id="dealer_character" class="shadow">
+                    <!-- <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option> -->
+                </select>
+                <label for="dealer_move">Move</label>
+                <select name="moves" id="dealer_move" class="shadow">
+                    <!-- <option value="All">All</option>
+                    <option value="c.L">c.L</option>
+                    <option value="c.M">c.M</option>
+                    <option value="c.H">c.H</option> -->
+                </select>
+            </form>
+            <form action="responder" id="responder">
+                <img src="sprites/Djeeta_portrait.png" alt="Djeeta Portrait" class="sprites" name="portrait">
+                <label for="responder_char">Responder:</label>
+                <select name="characters" id="responder_characters" class="shadow">
+                    <!-- <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option> -->
+                </select>
+                <label for="responder_move">Move</label>
+                <select name="moves" id="responder_move" class="shadow">
+                    <!-- <option value="c.L">c.L</option>
+                    <option value="c.M">c.M</option>
+                    <option value="c.H">c.H</option> -->
+                </select>
+            </form>
+        </div>
+        <!-- <a href="results.html"><input type="submit" value="Submit" class="shadow"></a> -->
+        <input type="submit" value="Compare" class="shadow" id="compare">
+    </div>
+
+    <div id="instructions" class="instructions selection center_item ">
+        <p>Instructions for use:</p>
+        <ul>
+            <li>This program is called SkyboundDB 2.0.</li>
+            <li>Its main purpose is to calculate the <a href="https://glossary.infil.net/?t=Frame%20Advantage">frame
+                    advantage</a> of situations in the game <i>Granblue Fantasy: Versus</i>.</li>
+            <li>The dealer is the player that has dealt a certain move, and the responder is the player who is assumed
+                to have blocked said move.</li>
+            <li>On the left choose the move that the dealer will perform.</li>
+            <li>On the right choose the move the responder will perform as a response to blocking the stated dealer
+                move.</li>
+            <li>The program can also check for <b>ALL</b> moves in the dealers character kit in response to the
+                responder's move.</li>
+            <li>Press <i>Submit</i> to get the results from the selected moves.</li>
+            <li>The program will return the result if said move can be punished or not from the responder's perspective.
+            </li>
+            <li>It will return how <a href="https://glossary.infil.net/?t=Minus">minus</a> a move is, and how much time
+                the responder has to perform the stipulated action to punish.</li>
+            <li>If <b>ALL</b> is selected, it will return a list of all possible moves that can be punished using the
+                responder's move.</li>
+            <li>You can also reset back to this screen by pressing <i>Reset</i> in a result page.</li>
+            <li>Enjoy the program!</li>
+        </ul>
+        
+        <table class="table_results hidden" id="results">
+            <p id="what_punishes" class="hidden">Moves that (<span id="light_moves">c.L</span>, 5f) can Punish:</p>
+            <tr>
+                <th>Move</th>
+                <th>Dealer On Block</th>
+                <th>Window to punish:</th>
+            </tr>
+            <tr>
+                <td><span id="mid_moves">f.M</span></td>
+                <td>-6 frame(s)</td>
+                <td>2 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">f.H</span></td>
+                <td>-9 frame(s)</td>
+                <td>5 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">2H</span></td>
+                <td>-13 frame(s)</td>
+                <td>9 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">2U</span></td>
+                <td>-12 frame(s)</td>
+                <td>8 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">5U</span></td>
+                <td>-5 frame(s)</td>
+                <td>1 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="light_moves">236L</span></td>
+                <td>-7 frame(s)</td>
+                <td>3 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="light_moves">623L</span></td>
+                <td>-22 frame(s)</td>
+                <td>18 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="mid_moves">623M</span></td>
+                <td>-30 frame(s)</td>
+                <td>26 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Rising Sword <span id="heavy_moves">623H</span></td>
+                <td>-30 frame(s)</td>
+                <td>26 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="light_moves">214L</span></td>
+                <td>-6 frame(s)</td>
+                <td>2 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="mid_moves">214M</span></td>
+                <td>-10 frame(s)</td>
+                <td>6 frame(s)</td>
+            </tr>
+            <tr>
+                <td>Overdrive Surge <span id="heavy_moves">214H</span></td>
+                <td>-8 frame(s)</td>
+                <td>4 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="heavy_moves">Tempest Blade</span></td>
+                <td>-13 frame(s)</td>
+                <td>9 frame(s)</td>
+            </tr>
+            <tr>
+                <td><span id="uni_moves">Catastrophe</span></td>
+                <td>-18 frame(s)</td>
+                <td>14 frame(s)</td>
+            </tr>
+        </table>
+       
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
