@@ -741,6 +741,10 @@ const characters = [
     "Zooey"
 ]
 
+const config = {headers: {"Access-Control-Allow-Origin": "*"}}
+const granFD = axios.get("https://www.dustloop.com/w/GBVS/Gran", config)
+console.log(granFD)
+
 
 function getFrameData() {
     let cats = document.querySelector("div.attack-info thead").innerText;
